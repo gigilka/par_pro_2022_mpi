@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 
 #include <gtest-mpi-listener.hpp>
-#include <vector>
 
 #include "./ring_topology.h"
 
