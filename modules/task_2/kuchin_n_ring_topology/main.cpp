@@ -2,14 +2,15 @@
 
 #include <gtest/gtest.h>
 
-#include <gtest-mpi-listeners.hpp>
+#include <gtest-mpi-listener.hpp>
+#include <vector>
 
 #include "./ring_topology.h"
 
 TEST(MPI_2, MPI_2_ring_1_Test) {
     int rank, csize;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_size(MPI_COMM_WORLD, &csize);
     int msg = randomMesg();
     int tmp = msg;
     int start = csize / 2;

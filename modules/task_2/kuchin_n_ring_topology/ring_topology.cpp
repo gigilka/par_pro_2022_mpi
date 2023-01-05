@@ -1,12 +1,9 @@
 // Copyright 2022 Kuchin Nikita
+#include <mpi.h>
+#include <random>
 
 #include "../../../modules/task_2/kuchin_n_ring_topology/ring_topology.h"
 
-#include <./mpi.h>
-
-#include <iostream>
-#include <random>
-#include <vector>
 
 int randomMesg() {
     std::random_device dev;
