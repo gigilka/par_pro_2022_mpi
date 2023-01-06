@@ -18,15 +18,17 @@ void shift(int* message, const int start) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &csize);
     int result = 0;
-    MPI_Status st;
+    MPI_Request req;
 
     if (rank == start) {
-        MPI_Send(&message, 1, MPI_INT, (start + 1) % csize, 0, MPI_COMM_WORLD);
-        MPI_Recv(&message, 1, MPI_INT, (start - 1) % csize, 0, MPI_COMM_WORLD,
-                 &st);
+        MPI_Isend(message, 1, MPI_INT, (start + 1) % csize, 0, MPI_COMM_WORLD,
+                  &req);
+        MPI_Irecv(message, 1, MPI_INT, (start - 1) % csize, 0, MPI_COMM_WORLD,
+                  &req);
     } else {
-        MPI_Recv(&message, 1, MPI_INT, (rank - 1) % csize, 0, MPI_COMM_WORLD,
-                 &st);
-        MPI_Send(&message, 1, MPI_INT, (rank + 1) % csize, 0, MPI_COMM_WORLD);
+        MPI_Irecv(message, 1, MPI_INT, (rank - 1) % csize, 0, MPI_COMM_WORLD,
+                  &req);
+        MPI_Isend(message, 1, MPI_INT, (rank + 1) % csize, 0, MPI_COMM_WORLD,
+                  &req);
     }
 }
