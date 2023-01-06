@@ -4,6 +4,8 @@
 
 #include <mpi.h>
 
-void shift(int* message, const int start);
-int randomMesg();
+#include <vector>
+
+void shift(void *data, int start, int end);
+
 #endif  // MODULES_TASK_2_KUCHIN_N_RING_TOPOLOGY_RING_TOPOLOGY_H_
