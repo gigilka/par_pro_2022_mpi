@@ -1,8 +1,8 @@
-// include necessary libraries
+// Copyright 2022 Kuchin Nikita
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "../../../modules/task_2/kuchin_n_ring_topology/ring_topology.h"
 
 void shift(void* message, int start, int end) {
     int csize, rank;
