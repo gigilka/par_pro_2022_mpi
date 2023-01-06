@@ -1,10 +1,12 @@
 // Copyright 2022 Kuchin NIkita
+#include "./ring_topology.h"
+
 #include <gtest/gtest.h>
 
 #include <gtest-mpi-listener.hpp>
 #include <vector>
 
-#include "./ring_topology.h"
+
 
 TEST(MPI_2, MPI_2_test_1_Test) {
     int testn = 1;
