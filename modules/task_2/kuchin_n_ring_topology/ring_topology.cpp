@@ -13,7 +13,7 @@ int randomMesg() {
     return tmp;
 }
 
-void shift(int& message, const int start) {
+void shift(int* message, const int start) {
     int rank, csize;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &csize);
