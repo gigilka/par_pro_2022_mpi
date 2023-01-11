@@ -80,14 +80,14 @@ TEST(MPI_2, MPI_2_test_4_Test) {
     MPI_Comm_size(MPI_COMM_WORLD, &csize);
 
     if (csize != 1) {
-        if (rank == csize - 1) {
+        if (rank == csize-1 ) {
             msg = 123;
         }
 
-        shift(&msg, csize - 1, csize - 2);
+        shift(&msg, csize-1, 0);
         //  std::cout << "test" << testn << " " << rank << " " << msg <<
         //  std::endl;
-        if (rank == csize - 2) {
+        if (rank == 0) {
             ASSERT_EQ(msg, 123);
         }
     }
